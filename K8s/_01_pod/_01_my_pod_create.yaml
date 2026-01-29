@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: devops-002
+  labels:
+    app.kubernetes.io/name: devops-002
+    my-type: backend
+    my-module: hello-module
+    my-project-name: devops-002
+spec:
+  containers:
+    - name: devops-002
+      image: elifcelik49/devops_002:v001
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 8080

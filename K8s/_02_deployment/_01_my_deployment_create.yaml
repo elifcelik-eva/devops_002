@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-002-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-002-1
+  template:
+    metadata:
+      labels:
+        app: devops-002-1
+    spec:
+      containers:
+        - name: devops-002-1
+          image: elifcelik49/devops_002:v001
+          resources:
+            limits:
+              memory: "300Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080   # Pod içindeki .jar uygulamanın portu

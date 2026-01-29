@@ -3,8 +3,9 @@
 
 ---------------
 
-### Docker Image
+## Docker 
 
+### Image:
 ###### Projeyi, Docker image haline getirme:
 
 ###### Version 1
@@ -107,3 +108,77 @@ docker compose down
 ```
 docker compose down -v
 ```
+
+## KUBERNETES (K8s)
+
+### Minikube Kurulum:
+```
+https://minikube.sigs.k8s.io/
+```
+###### Windows:
+```
+winget install Kubernetes.minikube
+```
+###### Minikube çalıştırma:
+```
+minikube start
+```
+###### Minikube durdurma:
+```
+minikube stop
+```
+###### Minikube dashboard erişim:
+```
+minikube dashboard
+```
+### Kubernetes ile iletişim:
+```
+kubectl
+```
+###### Pod oluşturma:
+```
+kubectl  run  my-pod1  --image=elifcelik49/devops_002:v001  
+```
+###### Pod listesi:
+```
+kubectl get pods
+kubectl get pod
+kubectl get po
+```
+###### Pod detay:
+```
+kubectl get pods  -o wide
+```
+### Yaml dosyası ile pod oluşturma:
+###### Pod oluşturma/güncelleme:
+```
+kubectl  apply  -f   _01_my_pod_create.yaml
+```
+######  Pod silme:
+```
+kubectl  delete  -f   _01_my_pod_create.yaml
+```
+###### Deployment oluşturma/güncelleme: ---> run komutu tek pod oluşturur; deployment ise replica sayısına göre birden fazla pod oluşturup yönetir.
+```
+kubectl  apply  -f   _01_my_deployment_create.yaml
+```
+######  Deployment silme:
+```
+kubectl  delete  -f   _01_my_deployment_create.yaml
+```
+###### Service oluşturma/güncelleme:  ---> Pod’ların IP’leri ve portları dinamik olduğundan, statik bir IP ve port aracılığıyla pod'lara sürekli network erişimi sağlar.
+```
+kubectl  apply  -f   _01_my_service_create.yaml
+```
+######  Service silme:
+```
+kubectl  delete  -f   _01_my_service_create.yaml
+```
+###  Port-Forward:
+```
+kubectl port-forward service/devops-002-1 9090:8080
+```
+
+
+
+
